@@ -5,7 +5,8 @@ namespace Engine
 	template <class T>
 	ResourceManager<T>::~ResourceManager()
 	{
-		// TODO: Unload all
+		for(class std::list<Resource<T>*>::iterator i = m_Resources.begin(); i != m_Resources.end(); ++i)
+			Unload((*i));
 	}
 	
 	template <class T>
@@ -23,15 +24,15 @@ namespace Engine
 			}
 		}
 		
-		std::string Fullpath = Path;
-		Fullpath.append("/");
-		Fullpath.append(Filename);
+		Resource<T>* Loaded = new Resource<T>(Path, Filename, this);
 		
-		T Underlying = Load(Fullpath);
-		Resource<T>* Loaded = new Resource<T>(Path, Filename, Underlying, this);
+		if(!Load(Loaded))
+		{
+			delete Loaded;
+			return 0;
+		}
 		
 		m_Resources.Add(Loaded);
-		
 		return Loaded;
 	}
 	

@@ -11,7 +11,7 @@ namespace Engine
 	class ImageManager : public ResourceManager<sf::Image>
 	{
 		protected:
-			sf::Image Load(const std::string& Fullpath);
+			bool Load(Resource<sf::Image>* Resource);
 	};
 }
 

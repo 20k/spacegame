@@ -13,14 +13,12 @@ namespace Engine
 	template <class T>
 	class ResourceManager;
 
-	// A wrapper class for a resource, keeps ResourceManager clean. It also keeps
-	// track of how many times it is referenced.
 	template <class T>
 	class Resource
 	{
 		public:
-			Resource(const std::string& Path, const std::string& Filename, const T& Underlying, ResourceManager<T>* Manager)
-				: Path(Path), Filename(Filename), Underlying(Underlying), m_Manager(Manager), m_Refs(1)
+			Resource(const std::string& Path, const std::string& Filename, ResourceManager<T>* Manager)
+				: Path(Path), Filename(Filename), Underlying(0), m_Manager(Manager), m_Refs(1)
 			{ }
 			
 			void Reference( void )
@@ -36,9 +34,15 @@ namespace Engine
 					m_Manager->Unload(this);
 			}
 			
+			// Use this to get the underlying type that isn't a pointer
+			T& Get( void )
+			{
+				return *Underlying;
+			}
+			
 			std::string Path;
 			std::string Filename;
-			T Underlying;
+			T* Underlying;
 			
 		private:
 			ResourceManager<T>* m_Manager;
@@ -58,7 +62,7 @@ namespace Engine
 			std::list<Resource<T>*> m_Resources;
 			
 			// A very dirty method of loading a specific type.
-			virtual T Load(const std::string& Fullpath) = 0;
+			virtual bool Load(Resource<T>* Resource) = 0;
 	};
 }
 

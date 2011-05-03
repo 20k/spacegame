@@ -4,15 +4,13 @@
 
 namespace Engine
 {
-	sf::Image ImageManager::Load(const std::string& Fullpath)
+	bool Load(Resource<sf::Image>* Resource)
 	{
-		sf::Image Image;
-		
-		if(!Image.LoadFromFile(Fullpath))
-		{
-		}
-		
-		return Image;
+		std::string Fullpath = Resource->Path;
+		Fullpath.append("/");
+		Fullpath.append(Resource->Filename);
+
+		return Resource->Underlying->LoadFromFile(Fullpath);
 	}
 }
 
