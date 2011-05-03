@@ -18,7 +18,7 @@ build: $(OBJS)
 	$(CC) $(LFLAGS) $(OBJS) -o $(PNAME)
 	
 clean:
-	\rm *.o *~ $(PNAME)
+	\rm **/*.o *.o *~ $(PNAME)
 
 %.o: %.cpp
 	$(CC) $(CFLAGS) $(INCLUDES) -c $^ -o $@
