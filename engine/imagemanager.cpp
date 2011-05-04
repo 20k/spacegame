@@ -11,9 +11,11 @@ namespace Engine
 		Fullpath.append(Resource->Filename);
 		
 		// sf::Image overloads the = operator, we need something like this:
-		sf::Image* Image = ((sf::Image*)Resource->Underlying);
-		Image = new sf::Image;
-		return ((sf::Image*)Resource->Underlying)->LoadFromFile(Fullpath);
+		sf::Image* Image = new sf::Image;
+		bool Success = Image->LoadFromFile(Fullpath);
+		Resource->Underlying = Image;
+		
+		return Success;
 	}
 	
 	void ImageManager::UnderlyingUnload( Resource* Resource )
