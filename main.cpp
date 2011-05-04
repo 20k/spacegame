@@ -7,7 +7,7 @@
 
 int main(int argc, char** argv)
 {
-	Engine::g_Initializers.Add("Initializing Planets...", Planets_Initialize);
+	Engine::g_Initializers->Add("Initializing Planets...", &Planets_Initialize);
 	
 	#ifdef PLATFORM_WINDOWS
 		std::cout << "Hello, Windows." << std::endl;
@@ -17,7 +17,7 @@ int main(int argc, char** argv)
 		#endif
 	#endif
 	
-	Engine::g_Initializers.Initialize();
+	Engine::g_Initializers->Initialize();
 
 	#ifdef PLATFORM_WINDOWS
 		std::cout << "Press enter to continue" << std::endl;

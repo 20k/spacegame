@@ -13,7 +13,7 @@ namespace Engine
 			void UnderlyingUnload( Resource* Resource );
 	};
 	
-	extern ImageManager g_ImageManager;
+	extern ImageManager* g_ImageManager;
 }
 
 #endif /* INCLUDES_ENGINE_IMAGEMANAGER_H */

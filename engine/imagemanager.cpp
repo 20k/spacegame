@@ -2,7 +2,7 @@
 
 namespace Engine
 {
-	ImageManager g_ImageManager = ImageManager ();
+	ImageManager* g_ImageManager = new ImageManager();
 	
 	bool ImageManager::UnderlyingLoad( Resource* Resource )
 	{

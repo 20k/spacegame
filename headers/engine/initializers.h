@@ -25,7 +25,7 @@ namespace Engine
 			std::list<Initializer*> m_Initializers;
 	};
 	
-	extern Initializers g_Initializers;
+	extern Initializers* g_Initializers;
 }
 
 #endif /* INCLUDES_ENGINE_IMAGEMANAGER_H */

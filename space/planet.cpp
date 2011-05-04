@@ -2,6 +2,8 @@
 #include "engine/imagemanager.h"
 #include "engine/initializers.h"
 
+#include <iostream>
+
 Engine::Resource* HabbitablePlanetImg = 0;
 
 Planet::Planet(const PlanetType Type, const Vector2<double>& Position, const double Radius)
@@ -27,10 +29,12 @@ void Planet::Draw(sf::RenderTarget& Target)
 
 bool Planets_Initialize( void )
 {
-	HabbitablePlanetImg = Engine::g_ImageManager.Load("Resources/Images", "habbitable_planet.png");
+	HabbitablePlanetImg = Engine::g_ImageManager->Load("Resources/Images", "habbitable_planet.png");
 	
 	if(!HabbitablePlanetImg)
 		return false;
+		
+	std::cout << "Loaded 'Resources/Images/habbitable_planet.png'" << std::endl;
 	
 	return true;
 }

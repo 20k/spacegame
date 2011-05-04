@@ -4,7 +4,7 @@
 
 namespace Engine
 {
-	Initializers g_Initializers = Initializers ();
+	Initializers* g_Initializers = new Initializers();
 	
 	void Initializers::Add(const std::string& Message, bool (*Function)( void ))
 	{
