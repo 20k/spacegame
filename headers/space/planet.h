@@ -9,7 +9,7 @@ enum PlanetType
 	PlanetType_Habbitable = 0,
 	PlanetType_Gaseous,
 	PlanetType_Frozen,
-	PlanetType_Lava,
+	PlanetType_Superheated,
 	PlanetType_Invalid
 };
 

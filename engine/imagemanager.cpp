@@ -1,7 +1,5 @@
 #include "engine/imagemanager.h"
 
-// TODO: Error handling
-
 namespace Engine
 {
 	ImageManager* g_ImageManager = new ImageManager();
