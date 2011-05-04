@@ -2,6 +2,8 @@
 
 namespace Engine
 {
+	ResourceManager<sf::Image>* g_ImageManager;
+	
 	template <class T>
 	ResourceManager<T>::~ResourceManager()
 	{
@@ -45,5 +47,22 @@ namespace Engine
 		m_Resources.remove(Resource);
 		delete Resource;
 	}
+	
+	template <class T>
+	bool ResourceManager<T>::UnderlyingLoad(Resource<T>* Resource)
+	{
+		return false;
+	}
+	
+	bool ResourceManager<sf::Image>::UnderlyingLoad(Resource<sf::Image>* Resource)
+	{
+		std::string Fullpath = Resource->Path;
+		Fullpath.append("/");
+		Fullpath.append(Resource->Filename);
+
+		return Resource->Underlying->LoadFromFile(Fullpath);
+	}
+	
+	template class ResourceManager<sf::Image>;
 }
 

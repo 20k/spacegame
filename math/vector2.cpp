@@ -114,6 +114,6 @@ float FastInverseSqrt( float Number )
         return y;
 }
 
-
 template class Vector2<float>;
 template class Vector2<double>;
+

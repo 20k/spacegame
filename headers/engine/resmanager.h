@@ -6,7 +6,7 @@
 #include <list>
 #include <string>
 
-// TODO: Add support for an OnUnload event, so you can delete the resource how you like.
+#include <SFML/Graphics.hpp>
 
 namespace Engine
 {
@@ -60,10 +60,26 @@ namespace Engine
 		
 		protected:
 			std::list<Resource<T>*> m_Resources;
-			
-			// A very dirty method of loading a specific type.
-			virtual bool Load(Resource<T>* Resource) = 0;
+
+			bool UnderlyingLoad(Resource<T>* Resource);
 	};
+
+	template <>
+	class ResourceManager<sf::Image>
+	{
+		public:
+			~ResourceManager();
+		
+			Resource<sf::Image>* Load(const std::string& Path, const std::string& Filename);
+			void Unload(Resource<sf::Image>* Resource);
+		
+		protected:
+			std::list<Resource<sf::Image>*> m_Resources;
+
+			bool UnderlyingLoad(Resource<sf::Image>* Resource);
+	};
+	
+	extern ResourceManager<sf::Image>* g_ImageManager;
 }
 
 #endif /* INCLUDES_ENGINE_RESMANAGER_H */
