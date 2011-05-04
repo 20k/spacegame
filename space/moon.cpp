@@ -18,7 +18,7 @@ Moon::Moon( Body* Parent )
 
 void Moon::Update(const Timestep Delta)
 {
-	m_OrbitalStep += 1 * Delta;
+	m_OrbitalStep += 0.25 * Delta;
 	
 	if( m_OrbitalStep >= 360 )
 		m_OrbitalStep = 0;
