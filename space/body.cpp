@@ -24,6 +24,11 @@ Vector2<double> Body::GetAbsolutePosition( void )
 	return Result;
 }
 
+double Body::GetRadius( void )
+{
+	return m_Radius;
+}
+
 void Body::Update(const Timestep Delta)
 {
 	for( std::list<Body*>::iterator i = m_Children.begin(); i != m_Children.end(); ++i )

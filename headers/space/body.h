@@ -25,6 +25,8 @@ class Body
 		// its orbit around another body.
 		virtual Vector2<double> GetAbsolutePosition( void );
 		
+		double GetRadius( void );
+		
 		// Sub-classes should implement this and use Delta to update position,
 		// and call the base function to update all children
 		virtual void Update(const Timestep Delta);

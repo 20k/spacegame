@@ -4,6 +4,8 @@
 #include "common.h"
 #include "space/body.h"
 
+#include <SFML/Graphics.hpp>
+
 enum PlanetType
 {
 	PlanetType_Habbitable = 0,
@@ -16,7 +18,7 @@ enum PlanetType
 class Planet : public Body
 {
 	public:
-		Planet(const PlanetType Type, const Vector2<double>& Position, const double Radius);
+		Planet(const PlanetType Type, const Vector2<double>& Position, Body* Parent = 0);
 		~Planet();
 
 		void Update(const Timestep Delta);
@@ -24,6 +26,7 @@ class Planet : public Body
 		
 	protected:
 		PlanetType m_Type;
+		sf::Sprite m_Sprite;
 };
 
 extern bool Planets_Initialize( void );
