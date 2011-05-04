@@ -10,7 +10,7 @@ enum PlanetType
 	PlanetType_Gaseous,
 	PlanetType_Frozen,
 	PlanetType_Superheated,
-	PlanetType_Invalid
+	PlanetType_Max,
 };
 
 class Planet : public Body

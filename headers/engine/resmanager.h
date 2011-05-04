@@ -10,76 +10,56 @@
 
 namespace Engine
 {
-	template <class T>
-	class ResourceManager;
-
-	template <class T>
-	class Resource
-	{
-		public:
-			Resource(const std::string& Path, const std::string& Filename, ResourceManager<T>* Manager)
-				: Path(Path), Filename(Filename), Underlying(0), m_Manager(Manager), m_Refs(1)
-			{ }
-			
-			void Reference( void )
-			{
-				++m_Refs;
-			}
-			
-			void Free( void )
-			{
-				--m_Refs;
-				
-				if(m_Refs <= 0)
-					m_Manager->Unload(this);
-			}
-			
-			// Use this to get the underlying type that isn't a pointer
-			T& Get( void )
-			{
-				return *Underlying;
-			}
-			
-			std::string Path;
-			std::string Filename;
-			T* Underlying;
-			
-		private:
-			ResourceManager<T>* m_Manager;
-			unsigned int m_Refs;
-	};
-	
-	template <class T>
+	class Resource;
 	class ResourceManager
 	{
 		public:
 			~ResourceManager();
 			
-			Resource<T>* Load(const std::string& Path, const std::string& Filename);
-			void Unload(Resource<T>* Resource);
-		
+			Resource* Load( const std::string& Path, const std::string& Filename );
+			void Unload( Resource* Resource );
+			
 		protected:
-			std::list<Resource<T>*> m_Resources;
-
-			bool UnderlyingLoad(Resource<T>* Resource);
-	};
-
-	template <>
-	class ResourceManager<sf::Image>
-	{
-		public:
-			~ResourceManager();
+			std::list<Resource*> m_Resources;
 		
-			Resource<sf::Image>* Load(const std::string& Path, const std::string& Filename);
-			void Unload(Resource<sf::Image>* Resource);
-		
-		protected:
-			std::list<Resource<sf::Image>*> m_Resources;
-
-			bool UnderlyingLoad(Resource<sf::Image>* Resource);
+			virtual bool UnderlyingLoad( Resource* Resource ) = 0;
+			virtual void UnderlyingUnload( Resource* Resource) = 0;
 	};
 	
-	extern ResourceManager<sf::Image>* g_ImageManager;
+	class Resource
+	{
+		public:
+			Resource(const std::string& Path, const std::string& Filename, ResourceManager* Manager)
+				: Path(Path), Filename(Filename), Underlying(0), m_References(1), m_Manager(Manager)
+			{
+			}
+			
+			virtual ~Resource()
+			{
+			}
+
+			void Reference( void )
+			{
+				m_References++;
+			}
+			
+			void Dereference( void )
+			{
+				m_References--;
+				
+				if(m_References <= 0)
+					m_Manager->Unload(this);
+			}
+
+		public:
+			std::string Path;
+			std::string Filename;
+			void* Underlying;
+			
+		protected:
+			unsigned int m_References;
+			ResourceManager* m_Manager;
+	};
 }
 
 #endif /* INCLUDES_ENGINE_RESMANAGER_H */
