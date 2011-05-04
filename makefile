@@ -14,9 +14,12 @@ LFLAGS = -Wall -lsfml-graphics -lsfml-window -lsfml-system $(DEBUG)
 
 all: build
 
+debug: build
+	insight $(PNAME)
+
 build: $(OBJS)
 	$(CC) $(LFLAGS) $(OBJS) -o $(PNAME)
-	
+
 clean:
 	\rm **/*.o *.o *~ $(PNAME)
 

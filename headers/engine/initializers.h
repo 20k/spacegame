@@ -11,6 +11,11 @@ namespace Engine
 	class Initializer
 	{
 		public:
+			Initializer(const std::string& Message, bool (*Function)( void ))
+				: Message(Message), Function(Function)
+			{
+			}
+		
 			std::string Message;
 			bool (*Function)( void );
 	};

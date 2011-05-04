@@ -8,11 +8,7 @@ namespace Engine
 	
 	void Initializers::Add(const std::string& Message, bool (*Function)( void ))
 	{
-		Initializer* NewInit = new Initializer();
-		NewInit->Message = Message;
-		NewInit->Function = Function;
-		
-		m_Initializers.push_back(NewInit);
+		m_Initializers.push_back(new Initializer(Message, Function));
 	}
 	
 	bool Initializers::Initialize( void )
