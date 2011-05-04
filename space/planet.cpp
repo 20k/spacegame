@@ -1,5 +1,6 @@
 #include "space/planet.h"
 #include "engine/imagemanager.h"
+#include "engine/initializers.h"
 
 Engine::Resource* HabbitablePlanetImg = 0;
 
@@ -24,7 +25,7 @@ void Planet::Draw(sf::RenderTarget& Target)
 	Body::Draw(Target);
 }
 
-bool Planets_Initalize( void )
+bool Planets_Initialize( void )
 {
 	HabbitablePlanetImg = Engine::g_ImageManager.Load("Resources/Images", "habbitable_planet.png");
 	

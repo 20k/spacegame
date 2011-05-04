@@ -26,5 +26,7 @@ class Planet : public Body
 		PlanetType m_Type;
 };
 
+extern bool Planets_Initialize( void );
+
 #endif /* INCLUDES_SSYTEM_H */
 

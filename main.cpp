@@ -2,9 +2,13 @@
 #include <iostream>
 
 #include "common.h"
+#include "space/planet.h"
+#include "engine/initializers.h"
 
 int main(int argc, char** argv)
 {
+	Engine::g_Initializers.Add("Initializing Planets...", Planets_Initialize);
+	
 	#ifdef PLATFORM_WINDOWS
 		std::cout << "Hello, Windows." << std::endl;
 	#else
@@ -12,6 +16,8 @@ int main(int argc, char** argv)
 			std::cout << "Hello, Linux." << std::endl;
 		#endif
 	#endif
+	
+	Engine::g_Initializers.Initialize();
 
 	#ifdef PLATFORM_WINDOWS
 		std::cout << "Press enter to continue" << std::endl;
