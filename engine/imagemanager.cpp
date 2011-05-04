@@ -10,6 +10,8 @@ namespace Engine
 		Fullpath.append("/");
 		Fullpath.append(Resource->Filename);
 		
+		// sf::Image overloads the = operator, we need something like this:
+		// ((sf::Image*)Resource->Underlying) = new sf::Image();
 		return ((sf::Image*)Resource->Underlying)->LoadFromFile(Fullpath);
 	}
 	
