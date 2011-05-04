@@ -4,7 +4,9 @@
 
 namespace Engine
 {
-	bool Load(Resource<sf::Image>* Resource)
+	ImageManager* g_ImageManager = new ImageManager();
+	
+	bool ImageManager::Load(Resource<sf::Image>* Resource)
 	{
 		std::string Fullpath = Resource->Path;
 		Fullpath.append("/");
