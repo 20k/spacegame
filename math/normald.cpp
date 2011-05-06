@@ -1,5 +1,6 @@
 #define _USE_MATH_DEFINES
 #include "common.h"
+#include <cstdlib>
 #include <cmath>
 #include <complex>
 
