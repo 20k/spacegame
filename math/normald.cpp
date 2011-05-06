@@ -1,12 +1,34 @@
 #define _USE_MATH_DEFINES
+#include "common.h"
 #include <cmath>
-#include <math.h>
-#include <float.h>
-#include <algorithm>
 #include <complex>
 
 #define M_SQRT2PI 2.50663
 #define M_1_SQRTPI  0.564189583547756286948
+
+#ifdef PLATFORM_LINUX
+double mp_isnan(double x)
+{
+	return isnan(x);
+}
+
+double mp_finite(double x)
+{
+	return finite(x);
+}
+#endif
+
+#ifdef PLATFORM_WINDOWS
+double mp_isnan(double x)
+{
+	return _isnan(x);
+}
+
+double mp_finite(double x)
+{
+	return _finite(x);
+}
+#endif
 
 /*
  * A normally distributed random number generator.  We avoid
@@ -20,8 +42,8 @@ double random_normal() {
 	register double r[2];
 
 	if (i == 1) {
-		r[0] = sqrt(-2*log((double)(rand()+1)/(double)(RAND_MAX+1)));
-		r[1] = 2*M_PI*(double)(rand()+1)/(double)(RAND_MAX+1);
+		r[0] = sqrt(-2*log((double)(rand()+1)/((double)(RAND_MAX)+1.0)));
+		r[1] = 2*M_PI*(double)(rand()+1)/((double)(RAND_MAX)+1.0);
 		u[0] = r[0]*sin(r[1]);
 		u[1] = r[0]*cos(r[1]);
 		i = 0;
@@ -115,9 +137,9 @@ double stdnormal_cdf(double u)
 	};
 	register double y, z;
 
-	if (_isnan(u))
+	if (mp_isnan(u))
 		return 0;
-	if (!_finite(u))
+	if (!mp_finite(u))
 		return (u < 0 ? 0.0 : 1.0);
 	y = fabs(u);
 	if (y <= 0.46875*M_SQRT2) {
@@ -188,7 +210,7 @@ double stdnormal_inv(double p)
 
 	register double q, t, u;
 
-	if (_isnan(p) || p > 1.0 || p < 0.0)
+	if (mp_isnan(p) || p > 1.0 || p < 0.0)
 		return 0;
 	if (p == 0.0)
 		return 0;
@@ -224,4 +246,5 @@ double InverseNormal(double val, double mu, double stddev)
 	if(val>1) val=1;
 	return (stdnormal_inv(val)*stddev)+mu;
 }
+
 }

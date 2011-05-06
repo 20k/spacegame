@@ -13,8 +13,6 @@ void TestPoint(int X, int Y)
 	Vector2<double> spos(X, Y);
 	Vector2<double> fpos;
 	fpos=gCamera::PixelsToPoint(spos);
-	printf("MX: %d MY: %d\n", X, Y);
-	printf("X: %f Y: %f\n", fpos.X, fpos.Y);
 }
 
 int main(int argc, char** argv)
@@ -27,7 +25,6 @@ int main(int argc, char** argv)
 	gCamera::SetCameraPosition(Vector2<double>(0, 0));
 	Vector2<double> egpos;
 	egpos=gCamera::PointToPixels(Vector2<double>(-1,-1));
-	printf("X: %f Y: %f\n", egpos.X, egpos.Y);
 	
 	sf::RenderWindow App(sf::VideoMode(800, 600, 32), "Planets");
 	App.SetFramerateLimit(60);
