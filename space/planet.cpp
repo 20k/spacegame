@@ -8,7 +8,7 @@
 Engine::Resource* HabbitablePlanetRes = 0;
 sf::Image* HabbitablePlanetImg = 0;
 
-Planet::Planet(const PlanetType Type, const Vector2<double>& Position, Body* Parent)
+Planet::Planet(const PlanetType Type, const Vector2<double>& Position, Component* Parent)
 	: Body(Position, 128, Parent), m_Type(Type)
 {
 	switch(m_Type)

@@ -1,5 +1,5 @@
-#ifndef INCLUDES_SPACE_BODY_H
-#define INCLUDES_SPACE_BODY_H
+#ifndef INCLUDES_SPACE_ENTITY_H
+#define INCLUDES_SPACE_ENTITY_H
 
 #include "common.h"
 #include "math/vector2.h"
@@ -9,24 +9,21 @@
 
 #include <SFML/Graphics.hpp>
 
-// The base class for everything that is in space that isn't alive:
-// Like asteroids, suns, planets, moons, etc.
-class Body : public Component
+class Body;
+
+// The base class for everything that is in space that's alive, like spaceships
+class Entity : public Component
 {
 	public:
-		Body(const Vector2<double>& Position, const double Radius, Component* Parent = 0);
-		virtual ~Body() { }
+		Entity(const Vector2<double>& Position, Component* Parent = 0);
+		virtual ~Entity() { }
 		
 		// Relative to its parents.
 		Vector2<double> GetRelativePosition( void );
 		
 		// Gets the position, compared to space
-		// For example, Moon + Planet + Solar System + Galaxy + Space
-		// You should override this for satellites, to take into account
-		// its orbit around another body.
+		// For example, This + Galaxy + Space
 		virtual Vector2<double> GetAbsolutePosition( void );
-		
-		double GetRadius( void );
 		
 		// Sub-classes should implement this and use Delta to update position,
 		// and call the base function to update all children
@@ -35,10 +32,7 @@ class Body : public Component
 		// Sub-classes should implement this and call the base function,
 		// to draw all children
 		virtual void Draw(sf::RenderTarget& Target);
-	
-	protected:
-		double m_Radius;
 };
 
-#endif /* INCLUDES_SPACE_BODY_H */
+#endif /* INCLUDES_SPACE_ENTITY_H */
 

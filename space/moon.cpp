@@ -12,7 +12,7 @@ Moon::Moon( Body* Parent )
 	: Body( Vector2<double>(0, 0), 32, Parent), m_OrbitalStep(0)
 {
 	m_Sprite = sf::Sprite (*MoonImg);
-	m_OrbitalRadius = m_Parent->GetRadius() * 1.65;
+	m_OrbitalRadius = ((Body*)m_Parent)->GetRadius() * 1.65;
 	m_Position = Vector2<double>(m_OrbitalRadius, m_OrbitalRadius);
 }
 

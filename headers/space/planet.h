@@ -3,6 +3,7 @@
 
 #include "common.h"
 #include "space/body.h"
+#include "space/component.h"
 
 #include <SFML/Graphics.hpp>
 
@@ -18,7 +19,7 @@ enum PlanetType
 class Planet : public Body
 {
 	public:
-		Planet(const PlanetType Type, const Vector2<double>& Position, Body* Parent = 0);
+		Planet(const PlanetType Type, const Vector2<double>& Position, Component* Parent = 0);
 		~Planet();
 
 		void Update(const Timestep Delta);
