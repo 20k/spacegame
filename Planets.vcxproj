@@ -39,8 +39,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\fpgame2\headers;C:\sfml-1.6\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\sfml-1.6\lib\vc2008;$(LibraryPath)</LibraryPath>
+    <IncludePath>headers\;..\sfml-1.6\include;$(IncludePath)</IncludePath>
+    <LibraryPath>..\sfml-1.6\lib\vc2008;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -79,17 +79,35 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="engine\camera.cpp" />
+    <ClCompile Include="engine\imagemanager.cpp" />
+    <ClCompile Include="engine\initializers.cpp" />
+    <ClCompile Include="engine\resmanager.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="math\normald.cpp" />
     <ClCompile Include="math\vector2.cpp" />
     <ClCompile Include="pnoise\pnoise.cpp" />
+    <ClCompile Include="pnoise\simplexnoise1234.cpp" />
     <ClCompile Include="space\body.cpp" />
+    <ClCompile Include="space\entity.cpp" />
+    <ClCompile Include="space\moon.cpp" />
+    <ClCompile Include="space\planet.cpp" />
     <ClCompile Include="ssystem\ssystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers\common.h" />
+    <ClInclude Include="headers\engine\camera.h" />
+    <ClInclude Include="headers\engine\imagemanager.h" />
+    <ClInclude Include="headers\engine\initializers.h" />
+    <ClInclude Include="headers\engine\resmanager.h" />
+    <ClInclude Include="headers\math\normald.h" />
     <ClInclude Include="headers\math\vector2.h" />
     <ClInclude Include="headers\pnoise\pnoise.h" />
+    <ClInclude Include="headers\pnoise\simplexnoise1234.h" />
     <ClInclude Include="headers\space\body.h" />
+    <ClInclude Include="headers\space\component.h" />
+    <ClInclude Include="headers\space\entity.h" />
+    <ClInclude Include="headers\space\moon.h" />
     <ClInclude Include="headers\space\planet.h" />
     <ClInclude Include="headers\ssystem\ssystem.h" />
   </ItemGroup>
