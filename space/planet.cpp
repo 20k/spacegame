@@ -2,6 +2,7 @@
 #include "space/moon.h"
 #include "engine/imagemanager.h"
 #include "engine/initializers.h"
+#include "engine/camera.h"
 
 #include <iostream>
 
@@ -9,15 +10,15 @@ Engine::Resource* HabbitablePlanetRes = 0;
 sf::Image* HabbitablePlanetImg = 0;
 
 Planet::Planet(const PlanetType Type, const Vector2<double>& Position, Component* Parent)
-	: Body(Position, 128, Parent), m_Type(Type)
+	: Body(Position, 0.2, Parent), m_Type(Type)
 {
 	switch(m_Type)
 	{
 		case PlanetType_Habbitable: m_Sprite = sf::Sprite (*HabbitablePlanetImg); break;
 	}
 	
-	m_Position.X += m_Radius;
-	m_Position.Y += m_Radius;
+	//m_Position.X += m_Radius;
+	//m_Position.Y += m_Radius;
 	
 	m_Children.push_back(new Moon(this));
 }
@@ -33,9 +34,11 @@ void Planet::Update(const Timestep Delta)
 
 void Planet::Draw(sf::RenderTarget& Target)
 {
-	Vector2<double> Pos = GetAbsolutePosition();
-	m_Sprite.SetPosition(Pos.X - m_Radius, Pos.Y - m_Radius);
-	
+	Vector2<double> Pos = gCamera::PointToPixels(GetAbsolutePosition());
+
+	double Size = gCamera::PointToSize(m_Radius);
+	m_Sprite.SetPosition(Pos.X - Size, Pos.Y - Size);
+	m_Sprite.Resize(Size*2, Size*2);
 	Target.Draw(m_Sprite);
 	
 	Body::Draw(Target);

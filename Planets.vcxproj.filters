@@ -37,6 +37,12 @@
     <Filter Include="Source Files\space">
       <UniqueIdentifier>{c6f84fa8-dedc-4fbc-9b33-a801bfe5ac4a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\engine">
+      <UniqueIdentifier>{9198cd18-eee8-4fdb-a6d0-422cc089264a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\engine">
+      <UniqueIdentifier>{d34d3a4b-4b6c-49b4-80bb-9514e3ef421e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -53,6 +59,33 @@
     </ClCompile>
     <ClCompile Include="ssystem\ssystem.cpp">
       <Filter>Source Files\ssystem</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\imagemanager.cpp">
+      <Filter>Source Files\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\initializers.cpp">
+      <Filter>Source Files\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\resmanager.cpp">
+      <Filter>Source Files\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="math\normald.cpp">
+      <Filter>Source Files\math</Filter>
+    </ClCompile>
+    <ClCompile Include="pnoise\simplexnoise1234.cpp">
+      <Filter>Source Files\pnoise</Filter>
+    </ClCompile>
+    <ClCompile Include="space\entity.cpp">
+      <Filter>Source Files\space</Filter>
+    </ClCompile>
+    <ClCompile Include="space\moon.cpp">
+      <Filter>Source Files\space</Filter>
+    </ClCompile>
+    <ClCompile Include="space\planet.cpp">
+      <Filter>Source Files\space</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\camera.cpp">
+      <Filter>Source Files\engine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -73,6 +106,33 @@
     </ClInclude>
     <ClInclude Include="headers\ssystem\ssystem.h">
       <Filter>Header Files\ssystem</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\math\normald.h">
+      <Filter>Header Files\math</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\pnoise\simplexnoise1234.h">
+      <Filter>Header Files\pnoise</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\space\component.h">
+      <Filter>Header Files\space</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\space\entity.h">
+      <Filter>Header Files\space</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\space\moon.h">
+      <Filter>Header Files\space</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\engine\imagemanager.h">
+      <Filter>Header Files\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\engine\initializers.h">
+      <Filter>Header Files\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\engine\resmanager.h">
+      <Filter>Header Files\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\engine\camera.h">
+      <Filter>Header Files\engine</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
