@@ -34,12 +34,16 @@ void Planet::Update(const Timestep Delta)
 
 void Planet::Draw(sf::RenderTarget& Target)
 {
-	Vector2<double> Pos = gCamera::PointToPixels(GetAbsolutePosition());
+	Vector2<double> Pos = GetAbsolutePosition();
+	double Size = m_Radius;
 
-	double Size = gCamera::PointToSize(m_Radius);
-	m_Sprite.SetPosition(Pos.X - Size, Pos.Y - Size);
-	m_Sprite.Resize(Size*2, Size*2);
-	Target.Draw(m_Sprite);
+	if(gCamera::IsVisible(Pos, Vector2<double>(Size, Size))){
+		Pos=gCamera::PointToPixels(Pos);
+		Size=gCamera::PointToSize(Size);
+		m_Sprite.SetPosition(Pos.X - Size, Pos.Y - Size);
+		m_Sprite.Resize(Size*2, Size*2);
+		Target.Draw(m_Sprite);
+	}
 	
 	Body::Draw(Target);
 }
