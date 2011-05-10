@@ -10,7 +10,7 @@ Engine::Resource* MoonRes = 0;
 sf::Image* MoonImg = 0;
 
 Moon::Moon( Body* Parent )
-	: Body( Vector2<double>(0, 0), 0.05, Parent), m_OrbitalStep(0)
+	: Body( Vector2<double>(0, 0), 0.02, Parent), m_OrbitalStep(0)
 {
 	m_Sprite = sf::Sprite (*MoonImg);
 	m_OrbitalRadius = ((Body*)m_Parent)->GetRadius() * 1.65;

@@ -19,9 +19,6 @@
     <Filter Include="Header Files\pnoise">
       <UniqueIdentifier>{9fef8708-cde3-4088-b1a6-f5571cb4e842}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\ssystem">
-      <UniqueIdentifier>{8ad8a36d-8ca7-4a1c-88a7-63ea4435e599}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\space">
       <UniqueIdentifier>{95c39355-087a-4bf9-92b7-ebf93f92ca9d}</UniqueIdentifier>
     </Filter>
@@ -42,6 +39,21 @@
     </Filter>
     <Filter Include="Source Files\engine">
       <UniqueIdentifier>{d34d3a4b-4b6c-49b4-80bb-9514e3ef421e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\gui">
+      <UniqueIdentifier>{9dc6a272-f353-4898-9992-9f9e5362caef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\scripting">
+      <UniqueIdentifier>{eff20dcf-c072-4b2e-97e4-1592b634756d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gui">
+      <UniqueIdentifier>{1ee3f47c-0217-46d4-9c8a-7fc78b7ebb76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\scripting">
+      <UniqueIdentifier>{96b3fbd8-f020-44f0-b492-206ae78dda74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ssystem">
+      <UniqueIdentifier>{8ad8a36d-8ca7-4a1c-88a7-63ea4435e599}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -87,6 +99,15 @@
     <ClCompile Include="engine\camera.cpp">
       <Filter>Source Files\engine</Filter>
     </ClCompile>
+    <ClCompile Include="gui\control.cpp">
+      <Filter>Source Files\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="scripting\object.cpp">
+      <Filter>Source Files\scripting</Filter>
+    </ClCompile>
+    <ClCompile Include="space\sun.cpp">
+      <Filter>Source Files\space</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers\common.h">
@@ -119,9 +140,6 @@
     <ClInclude Include="headers\space\entity.h">
       <Filter>Header Files\space</Filter>
     </ClInclude>
-    <ClInclude Include="headers\space\moon.h">
-      <Filter>Header Files\space</Filter>
-    </ClInclude>
     <ClInclude Include="headers\engine\imagemanager.h">
       <Filter>Header Files\engine</Filter>
     </ClInclude>
@@ -133,6 +151,18 @@
     </ClInclude>
     <ClInclude Include="headers\engine\camera.h">
       <Filter>Header Files\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\scripting\object.h">
+      <Filter>Header Files\scripting</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\gui\control.h">
+      <Filter>Header Files\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\space\sun.h">
+      <Filter>Header Files\space</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\space\moon.h">
+      <Filter>Header Files\space</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

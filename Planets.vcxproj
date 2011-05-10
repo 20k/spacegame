@@ -40,7 +40,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>headers\;..\sfml-1.6\include;$(IncludePath)</IncludePath>
-    <LibraryPath>..\sfml-1.6\lib\vc2008;$(LibraryPath)</LibraryPath>
+    <LibraryPath>..\sfml-1.6\lib\vc2008;..\lua;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -54,11 +54,12 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\lua\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>sfml-graphics-s-d.lib;sfml-system-s-d.lib;sfml-window-s-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>sfml-graphics-s-d.lib;sfml-system-s-d.lib;sfml-window-s-d.lib;lua51.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -83,15 +84,18 @@
     <ClCompile Include="engine\imagemanager.cpp" />
     <ClCompile Include="engine\initializers.cpp" />
     <ClCompile Include="engine\resmanager.cpp" />
+    <ClCompile Include="gui\control.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="math\normald.cpp" />
     <ClCompile Include="math\vector2.cpp" />
     <ClCompile Include="pnoise\pnoise.cpp" />
     <ClCompile Include="pnoise\simplexnoise1234.cpp" />
+    <ClCompile Include="scripting\object.cpp" />
     <ClCompile Include="space\body.cpp" />
     <ClCompile Include="space\entity.cpp" />
     <ClCompile Include="space\moon.cpp" />
     <ClCompile Include="space\planet.cpp" />
+    <ClCompile Include="space\sun.cpp" />
     <ClCompile Include="ssystem\ssystem.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -100,15 +104,18 @@
     <ClInclude Include="headers\engine\imagemanager.h" />
     <ClInclude Include="headers\engine\initializers.h" />
     <ClInclude Include="headers\engine\resmanager.h" />
+    <ClInclude Include="headers\gui\control.h" />
     <ClInclude Include="headers\math\normald.h" />
     <ClInclude Include="headers\math\vector2.h" />
     <ClInclude Include="headers\pnoise\pnoise.h" />
     <ClInclude Include="headers\pnoise\simplexnoise1234.h" />
+    <ClInclude Include="headers\scripting\object.h" />
     <ClInclude Include="headers\space\body.h" />
     <ClInclude Include="headers\space\component.h" />
     <ClInclude Include="headers\space\entity.h" />
     <ClInclude Include="headers\space\moon.h" />
     <ClInclude Include="headers\space\planet.h" />
+    <ClInclude Include="headers\space\sun.h" />
     <ClInclude Include="headers\ssystem\ssystem.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
