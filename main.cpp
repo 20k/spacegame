@@ -1,6 +1,7 @@
 #include "common.h"
 #include "space/planet.h"
 #include "space/moon.h"
+#include "space/sun.h"
 #include "engine/camera.h"
 #include "engine/initializers.h"
 
@@ -44,13 +45,12 @@ int main(int argc, char** argv)
 
 	gCamera::SetWindowSize(800, 600);
 	gCamera::SetCameraPosition(Vector2<double>(0, 0));
-	Vector2<double> egpos;
-	egpos=gCamera::PointToPixels(Vector2<double>(-1,-1));
 	
 	sf::RenderWindow App(sf::VideoMode(800, 600, 32), "Planets");
 	App.SetFramerateLimit(60);
 	
-	Planet TestPlanet(PlanetType_Habbitable, Vector2<double>(0, 0));
+	//Planet TestPlanet(PlanetType_Habbitable, Vector2<double>(0, 0));
+	Sun TestSun(SunType_MainSequence, Vector2<double>(0,0), NULL);
 	g_Input=&App.GetInput();
 	
     while (App.IsOpened())
@@ -70,8 +70,8 @@ int main(int argc, char** argv)
         App.Clear();
         
         // TODO: Draw and update stuff
-		TestPlanet.Update(1.0f);
-		TestPlanet.Draw(App);
+		TestSun.Update(1.0f);
+		TestSun.Draw(App);
 
         App.Display();
     }
