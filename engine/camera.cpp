@@ -95,10 +95,15 @@ namespace gCamera{
 
 	bool IsVisible(Vector2<double> pos, Vector2<double> size)
 	{
-		if(IsVisible(pos)) return true;
-		pos=size+pos; //Sifn't overload +=, hehe.
-		if(IsVisible(pos)) return true;
-		return false;
+		pos=PointToPixels(pos);
+		size.X=PointToSize(size.X);
+		size.Y=PointToSize(size.Y);
+		pos.Y=pos.Y-size.Y;
+		if(pos.X<0&&(pos.X+size.X)<0) return false;
+		if(pos.X>g_WSW) return false;
+		if(pos.Y<0&&(pos.Y+size.Y)<0) return false;
+		if(pos.Y>g_WSH) return false;
+		return true;
 	}
 
 };
