@@ -36,6 +36,6 @@ class Vector2
 	
 		T X, Y;
 };
-
+float FastInverseSqrt( float Number );
 #endif /* INCLUDES_MATH_VECTOR2_H */
 

@@ -36,40 +36,87 @@ double clamp(double val, double min, double max)
 
 void Sun::Update(const Timestep Delta)
 {
-	flamestep+=0.1*Delta;
+	//Offset for 'flaming'
+	flamestep+=0.003*Delta;
+	Body::Update(Delta);
+
+	//Only update texture if the sun is visible (not a fast function)
+	Vector2<double> Pos = GetAbsolutePosition();
+	double Radius = m_Radius;
+	Vector2<double> Size(m_Radius, m_Radius);
+	if(!gCamera::IsVisible(Pos-(Size*0.5), Size)){
+		return;
+	}
 	int w=m_Image.GetWidth();
 	int h=m_Image.GetHeight();
 
+	//Get center
 	int centp=floor((float)w/2.0);
 	Vector2<double> distv;
-
+	float dist=0;
+	double alpha=0;
+	double xst, yst;
+	double rpl, thetapl;
+	double val, val2;
 	for(int y=0;y<h;y++){
 		for(int x=0;x<w;x++){
+			//Get this pixels distance from center
 			distv=Vector2<double>((double)(centp-x)/w, (double)(centp-y)/h);
-			float dist=distv.Length();
+			dist=distv.Length();
 
-			double alpha=((dist-0.3)*15);
+			//Clamp the alpha to have more of a ball effect rather than a simple gradient
+			alpha=((dist-0.3)*15);
 			alpha=1-alpha;
 
 			if(alpha<0){
-				//m_Image.SetPixel(x, y, sf::Color(0,0,0,0));
+				//No point calculating data for a pixel that isn't shown
 				continue;
 			}
-			double val=abs(SimplexNoise1234::noise(((double)(x+flamestep)/w)*100.0, ((double)(y+flamestep)/h)*100.0));
-			double val2=SimplexNoise1234::noise(((double)(x+flamestep)/w)*20.0, ((double)(y+flamestep)/h)*20.0);
+			//X-Step and Y-Step, basically just a system from -1,1
+			xst=(double)(x-centp)/(double)w;
+			yst=(double)(y-centp)/(double)h;
+			//Convert to Polar Co-ordinates (r, theta) so flames appear to go out instead of across.
+			rpl=(1/FastInverseSqrt(xst*xst+yst*yst))-flamestep;
+			thetapl=atan2(yst,xst)-flamestep;
+
+			//Small noise map
+			val=abs(SimplexNoise1234::noise((xst+flamestep)*100.0, yst*100.0));
+			//val=0.5;
+			//val2=0.5;
+			//Large 'flame' noise map
+			val2=SimplexNoise1234::noise(rpl*10.0, thetapl*10.0);
+			//I made a colour because all this in one line was just way too confusing.
 			sf::Color col;
-			col.r=255;
-			col.g=clamp((255-(val2*30))*0.7+(val*50)+(alpha*20),0,255);
-			//col.b=(val*255)-((val2-1)*20);
-			col.b=((val*255)*0.5)+((alpha+0.2)*30);
-			alpha=clamp(alpha-(1-(val2*0.2)),0,1);
-			col.a=alpha*255;
+
+			//For different types of sun.
+			switch(m_Type){
+			case SunType_MainSequence:
+				//It's gotta be red.
+				col.r=255;
+				//Okay, this is the green value, oranges are added with val and val2, then part of the 'white' component
+				//by adding alpha.
+				//Remember, val2 is 'flame' noise and val is small noise.
+				col.g=clamp((255-(val2*30))*0.7+(val*50)+(alpha*20),0,255);
+				//Blue is removed to add yellows, small noise and again, needs white component.
+				col.b=((val*255)*0.5)+((alpha+0.2)*30);
+				//Finally the alpha for the actual image is based mostly on the distance and the flame map.
+				//The conversion to 8 bit value seems to modulus the value instead of clamp, so I make sure
+				//it does not exceed 0-255
+				alpha=clamp(alpha-(1-(val2*0.2)),0,1);
+				col.a=alpha*255;
+				break;
+			case SunType_WhiteDwarf:
+				col.r=clamp(1-(val2*0.5)-(val*0.5)+(alpha*0.1), 0, 1)*255;
+				col.g=clamp(1-(val2*0.5)-(val*0.7)+(alpha*0.2), 0, 1)*255;
+				col.b=255;
+				alpha=clamp(alpha-(1-(val2*0.2)),0,1);
+				col.a=alpha*255;
+				break;
+			}
 			//col.a=255;
 			m_Image.SetPixel(x, y, col);
 		}
 	}
-
-	Body::Update(Delta);
 }
 
 void Sun::Draw(sf::RenderTarget &target)
@@ -92,7 +139,9 @@ void Sun::Draw(sf::RenderTarget &target)
 void Sun::UpdateTexture()
 {
 	double Size = m_Radius*2;
-	double lsize=gCamera::PointToSize(Size)*0.25;
+	//lsize is important, specifies the resolution of the sun and therefore, the speed of the
+	//update function. Basically just a scale between quality and speed.
+	double lsize=200;
 	m_Image=sf::Image(lsize, lsize, sf::Color(0, 0, 0, 0));
 
 	m_Sprite.SetImage(m_Image);

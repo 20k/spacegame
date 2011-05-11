@@ -47,11 +47,13 @@ int main(int argc, char** argv)
 	gCamera::SetCameraPosition(Vector2<double>(0, 0));
 	
 	sf::RenderWindow App(sf::VideoMode(800, 600, 32), "Planets");
-	App.SetFramerateLimit(60);
+	//App.SetFramerateLimit(60);
 	
 	//Planet TestPlanet(PlanetType_Habbitable, Vector2<double>(0, 0));
 	Sun TestSun(SunType_MainSequence, Vector2<double>(0,0), NULL);
 	g_Input=&App.GetInput();
+	sf::Clock clock;
+	float frame=0;
 	
     while (App.IsOpened())
     {
@@ -70,10 +72,12 @@ int main(int argc, char** argv)
         App.Clear();
         
         // TODO: Draw and update stuff
-		TestSun.Update(1.0f);
+		float now=clock.GetElapsedTime();
+		TestSun.Update((now-frame)*60);
 		TestSun.Draw(App);
 
         App.Display();
+		frame=now;
     }
 
     return 0;
