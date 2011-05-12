@@ -37,6 +37,8 @@ void TestZoom(int Delta)
 	gCamera::SetCameraPosition(cpoint+dpoint);
 }
 
+int Planet::XYOffset=1;
+
 int main(int argc, char** argv)
 {
 	Engine::g_Initializers->Add("Initializing Planets...", &Planets_Initialize);
@@ -45,16 +47,16 @@ int main(int argc, char** argv)
 
 	gCamera::SetWindowSize(800, 600);
 	gCamera::SetCameraPosition(Vector2<double>(0, 0));
-	
+
 	sf::RenderWindow App(sf::VideoMode(800, 600, 32), "Planets");
 	//App.SetFramerateLimit(60);
-	
+
 	//Planet TestPlanet(PlanetType_Habbitable, Vector2<double>(0, 0));
 	Sun TestSun(SunType_MainSequence, Vector2<double>(0,0), NULL);
 	g_Input=&App.GetInput();
 	sf::Clock clock;
 	float frame=0;
-	
+
     while (App.IsOpened())
     {
         // Process events
@@ -68,9 +70,9 @@ int main(int argc, char** argv)
 			if (Event.Type == sf::Event::MouseWheelMoved)
 				TestZoom(Event.MouseWheel.Delta);
         }
-        
+
         App.Clear();
-        
+
         // TODO: Draw and update stuff
 		float now=clock.GetElapsedTime();
 		TestSun.Update((now-frame)*60);

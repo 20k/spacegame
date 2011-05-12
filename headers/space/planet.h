@@ -9,7 +9,7 @@
 
 enum PlanetType
 {
-	PlanetType_Habbitable = 0,
+	PlanetType_Habitable = 0,
 	PlanetType_Gaseous,
 	PlanetType_Frozen,
 	PlanetType_Superheated,
@@ -24,7 +24,9 @@ class Planet : public Body
 
 		void Update(const Timestep Delta);
 		void Draw(sf::RenderTarget& Target);
-		
+		static int XYOffset;
+		const static int OffsetMul=1000;
+
 	protected:
 		PlanetType m_Type;
 		sf::Sprite m_Sprite;
@@ -35,5 +37,8 @@ class Planet : public Body
 
 extern bool Planets_Initialize( void );
 
+
+
 #endif /* INCLUDES_SSYTEM_H */
+
 

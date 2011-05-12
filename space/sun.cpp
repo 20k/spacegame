@@ -17,7 +17,7 @@ Sun::Sun(const SunType Type, const Vector2<double>& Position, Component* Parent)
 	m_Type=Type;
 	this->UpdateTexture();
 
-	m_Children.push_back(new Planet(PlanetType_Habbitable, Vector2<double>(5.0, 0.0),this));
+	m_Children.push_back(new Planet(PlanetType_Habitable, Vector2<double>(5.0, 0.0),this));
 	flamestep=0;
 }
 

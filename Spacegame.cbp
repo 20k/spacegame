@@ -14,7 +14,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
-					<Add directory="C:\Users\James\Desktop\Devbugs\spacegame\headers" />
+					<Add directory="C:\Users\James\Desktop\spacegame\headers" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -60,6 +60,7 @@
 		<Unit filename="headers\engine\initializers.h" />
 		<Unit filename="headers\engine\resmanager.h" />
 		<Unit filename="headers\gui\control.h" />
+		<Unit filename="headers\imagegen\imagegen.hpp" />
 		<Unit filename="headers\math\normald.h" />
 		<Unit filename="headers\math\vector2.h" />
 		<Unit filename="headers\pnoise\pnoise.h" />
@@ -72,6 +73,7 @@
 		<Unit filename="headers\space\planet.h" />
 		<Unit filename="headers\space\sun.h" />
 		<Unit filename="headers\ssystem\ssystem.h" />
+		<Unit filename="imagegen\Imagegen.cpp" />
 		<Unit filename="main.cpp" />
 		<Unit filename="math\normald.cpp" />
 		<Unit filename="math\vector2.cpp" />

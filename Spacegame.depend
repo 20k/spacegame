@@ -158,3 +158,170 @@
 	"common.h"
 	<SFML/Graphics.hpp>
 
+1305160444 source:c:\users\james\desktop\spacegame\engine\camera.cpp
+	"engine/camera.h"
+	<cmath>
+
+1305160444 source:c:\users\james\desktop\spacegame\engine\imagemanager.cpp
+	"engine/imagemanager.h"
+
+1305160444 source:c:\users\james\desktop\spacegame\engine\initializers.cpp
+	"engine/initializers.h"
+	<iostream>
+
+1305160444 source:c:\users\james\desktop\spacegame\engine\resmanager.cpp
+	"engine/resmanager.h"
+
+1305160444 source:c:\users\james\desktop\spacegame\gui\control.cpp
+	"gui/control.h"
+
+1305225889 source:c:\users\james\desktop\spacegame\main.cpp
+	"common.h"
+	"space/planet.h"
+	"space/moon.h"
+	"space/sun.h"
+	"engine/camera.h"
+	"engine/initializers.h"
+	<iostream>
+	<SFML/System.hpp>
+	<SFML/Graphics.hpp>
+
+1305160444 source:c:\users\james\desktop\spacegame\math\normald.cpp
+	"common.h"
+	<cstdlib>
+	<cmath>
+	<complex>
+
+1305160444 source:c:\users\james\desktop\spacegame\math\vector2.cpp
+	"math/vector2.h"
+
+1305162277 source:c:\users\james\desktop\spacegame\pnoise\pnoise.cpp
+	"pnoise/pnoise.h"
+
+1305160444 source:c:\users\james\desktop\spacegame\pnoise\simplexnoise1234.cpp
+	"pnoise/simplexnoise1234.h"
+
+1305160444 source:c:\users\james\desktop\spacegame\scripting\object.cpp
+	"scripting/object.h"
+	<iostream>
+
+1305160444 source:c:\users\james\desktop\spacegame\space\body.cpp
+	"space/body.h"
+
+1305160444 source:c:\users\james\desktop\spacegame\space\entity.cpp
+	"space/entity.h"
+	"space/body.h"
+
+1305160444 source:c:\users\james\desktop\spacegame\space\moon.cpp
+	"space/moon.h"
+	"engine/imagemanager.h"
+	"engine/initializers.h"
+	"engine/camera.h"
+	<iostream>
+	<math.h>
+
+1305224481 source:c:\users\james\desktop\spacegame\space\planet.cpp
+	"space/planet.h"
+	"space/moon.h"
+	"engine/imagemanager.h"
+	"engine/initializers.h"
+	"engine/camera.h"
+	<iostream>
+
+1305224653 source:c:\users\james\desktop\spacegame\space\sun.cpp
+	<cmath>
+	"space/sun.h"
+	"space/planet.h"
+	"engine/camera.h"
+	"pnoise/simplexnoise1234.h"
+
+1305160444 source:c:\users\james\desktop\spacegame\ssystem\ssystem.cpp
+	"ssystem/ssystem.h"
+
+1305160444 c:\users\james\desktop\spacegame\headers\engine\camera.h
+	"math/vector2.h"
+
+1305160444 c:\users\james\desktop\spacegame\headers\math\vector2.h
+	"common.h"
+
+1305160444 c:\users\james\desktop\spacegame\headers\common.h
+
+1305160444 c:\users\james\desktop\spacegame\headers\engine\imagemanager.h
+	"common.h"
+	"engine/resmanager.h"
+
+1305160444 c:\users\james\desktop\spacegame\headers\engine\resmanager.h
+	"common.h"
+	<list>
+	<string>
+	<SFML/Graphics.hpp>
+
+1305160444 c:\users\james\desktop\spacegame\headers\engine\initializers.h
+	"common.h"
+	<list>
+	<string>
+
+1305160444 c:\users\james\desktop\spacegame\headers\gui\control.h
+	"common.h"
+	"scripting/object.h"
+	<list>
+
+1305160444 c:\users\james\desktop\spacegame\headers\scripting\object.h
+	"common.h"
+	"lua.h"
+	"lualib.h"
+	"lauxlib.h"
+
+1305225885 c:\users\james\desktop\spacegame\headers\space\planet.h
+	"common.h"
+	"space/body.h"
+	"space/component.h"
+	<SFML/Graphics.hpp>
+
+1305160444 c:\users\james\desktop\spacegame\headers\space\body.h
+	"common.h"
+	"math/vector2.h"
+	"space/component.h"
+	<list>
+	<SFML/Graphics.hpp>
+
+1305160444 c:\users\james\desktop\spacegame\headers\space\component.h
+	"common.h"
+	"math/vector2.h"
+	<list>
+	<SFML/Graphics.hpp>
+
+1305160444 c:\users\james\desktop\spacegame\headers\space\moon.h
+	"common.h"
+	"space/body.h"
+	<SFML/Graphics.hpp>
+
+1305160444 c:\users\james\desktop\spacegame\headers\space\sun.h
+	"common.h"
+	"space/body.h"
+	"space/component.h"
+	<SFML/Graphics.hpp>
+
+1305162058 c:\users\james\desktop\spacegame\headers\pnoise\pnoise.h
+	"common.h"
+	<SFML/Graphics.hpp>
+
+1305160444 c:\users\james\desktop\spacegame\headers\pnoise\simplexnoise1234.h
+
+1305160444 c:\users\james\desktop\spacegame\headers\space\entity.h
+	"common.h"
+	"math/vector2.h"
+	"space/component.h"
+	<list>
+	<SFML/Graphics.hpp>
+
+1305160444 c:\users\james\desktop\spacegame\headers\ssystem\ssystem.h
+
+1305225638 source:c:\users\james\desktop\spacegame\imagegen\imagegen.cpp
+	"imagegen/imagegen.hpp"
+	"pnoise/pnoise.h"
+	"space/planet.h"
+
+1305225451 c:\users\james\desktop\spacegame\headers\imagegen\imagegen.hpp
+	<SFML/Graphics.hpp>
+
