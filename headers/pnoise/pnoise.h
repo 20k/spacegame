@@ -7,7 +7,7 @@
 
 namespace PerlinNoise
 {
-	extern void Generate( sf::Image &Image, const int Octaves, const double Zoom, const double Persistence, const int Seed = 57 );
+	extern double **Generate( int Xoffset,int Yoffset, int Width, int Height, int Octaves, int Frequency, double Zoom );
 }
 
 #endif /* INCLUDES_PNOISE_H */

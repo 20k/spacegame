@@ -1,0 +1,160 @@
+# depslib dependency file v1.0
+1305160444 source:c:\users\james\desktop\devbugs\spacegame\engine\camera.cpp
+	"engine/camera.h"
+	<cmath>
+
+1305160444 c:\users\james\desktop\devbugs\spacegame\headers\engine\camera.h
+	"math/vector2.h"
+
+1305160444 c:\users\james\desktop\devbugs\spacegame\headers\math\vector2.h
+	"common.h"
+
+1305160444 c:\users\james\desktop\devbugs\spacegame\headers\common.h
+
+1305160444 source:c:\users\james\desktop\devbugs\spacegame\engine\imagemanager.cpp
+	"engine/imagemanager.h"
+
+1305160444 c:\users\james\desktop\devbugs\spacegame\headers\engine\imagemanager.h
+	"common.h"
+	"engine/resmanager.h"
+
+1305160444 c:\users\james\desktop\devbugs\spacegame\headers\engine\resmanager.h
+	"common.h"
+	<list>
+	<string>
+	<SFML/Graphics.hpp>
+
+1305160444 source:c:\users\james\desktop\devbugs\spacegame\engine\initializers.cpp
+	"engine/initializers.h"
+	<iostream>
+
+1305160444 c:\users\james\desktop\devbugs\spacegame\headers\engine\initializers.h
+	"common.h"
+	<list>
+	<string>
+
+1305160444 source:c:\users\james\desktop\devbugs\spacegame\engine\resmanager.cpp
+	"engine/resmanager.h"
+
+1305160444 source:c:\users\james\desktop\devbugs\spacegame\main.cpp
+	"common.h"
+	"space/planet.h"
+	"space/moon.h"
+	"space/sun.h"
+	"engine/camera.h"
+	"engine/initializers.h"
+	<iostream>
+	<SFML/System.hpp>
+	<SFML/Graphics.hpp>
+
+1305160444 c:\users\james\desktop\devbugs\spacegame\headers\space\planet.h
+	"common.h"
+	"space/body.h"
+	"space/component.h"
+	<SFML/Graphics.hpp>
+
+1305160444 c:\users\james\desktop\devbugs\spacegame\headers\space\body.h
+	"common.h"
+	"math/vector2.h"
+	"space/component.h"
+	<list>
+	<SFML/Graphics.hpp>
+
+1305160444 c:\users\james\desktop\devbugs\spacegame\headers\space\component.h
+	"common.h"
+	"math/vector2.h"
+	<list>
+	<SFML/Graphics.hpp>
+
+1305160444 c:\users\james\desktop\devbugs\spacegame\headers\space\moon.h
+	"common.h"
+	"space/body.h"
+	<SFML/Graphics.hpp>
+
+1305160444 c:\users\james\desktop\devbugs\spacegame\headers\space\sun.h
+	"common.h"
+	"space/body.h"
+	"space/component.h"
+	<SFML/Graphics.hpp>
+
+1305160444 source:c:\users\james\desktop\devbugs\spacegame\math\normald.cpp
+	"common.h"
+	<cstdlib>
+	<cmath>
+	<complex>
+
+1305160444 source:c:\users\james\desktop\devbugs\spacegame\math\vector2.cpp
+	"math/vector2.h"
+
+1305160444 source:c:\users\james\desktop\devbugs\spacegame\pnoise\simplexnoise1234.cpp
+	"pnoise/simplexnoise1234.h"
+
+1305160444 c:\users\james\desktop\devbugs\spacegame\headers\pnoise\simplexnoise1234.h
+
+1305160444 source:c:\users\james\desktop\devbugs\spacegame\gui\control.cpp
+	"gui/control.h"
+
+1305160444 c:\users\james\desktop\devbugs\spacegame\headers\gui\control.h
+	"common.h"
+	"scripting/object.h"
+	<list>
+
+1305160444 c:\users\james\desktop\devbugs\spacegame\headers\scripting\object.h
+	"common.h"
+	"lua.h"
+	"lualib.h"
+	"lauxlib.h"
+
+1305160444 source:c:\users\james\desktop\devbugs\spacegame\scripting\object.cpp
+	"scripting/object.h"
+	<iostream>
+
+1305160444 source:c:\users\james\desktop\devbugs\spacegame\space\body.cpp
+	"space/body.h"
+
+1305160444 source:c:\users\james\desktop\devbugs\spacegame\space\entity.cpp
+	"space/entity.h"
+	"space/body.h"
+
+1305160444 c:\users\james\desktop\devbugs\spacegame\headers\space\entity.h
+	"common.h"
+	"math/vector2.h"
+	"space/component.h"
+	<list>
+	<SFML/Graphics.hpp>
+
+1305160444 source:c:\users\james\desktop\devbugs\spacegame\space\moon.cpp
+	"space/moon.h"
+	"engine/imagemanager.h"
+	"engine/initializers.h"
+	"engine/camera.h"
+	<iostream>
+	<math.h>
+
+1305160444 source:c:\users\james\desktop\devbugs\spacegame\space\planet.cpp
+	"space/planet.h"
+	"space/moon.h"
+	"engine/imagemanager.h"
+	"engine/initializers.h"
+	"engine/camera.h"
+	<iostream>
+
+1305160444 source:c:\users\james\desktop\devbugs\spacegame\space\sun.cpp
+	<cmath>
+	"space/sun.h"
+	"space/planet.h"
+	"engine/camera.h"
+	"pnoise/simplexnoise1234.h"
+
+1305160444 source:c:\users\james\desktop\devbugs\spacegame\ssystem\ssystem.cpp
+	"ssystem/ssystem.h"
+
+1305160444 c:\users\james\desktop\devbugs\spacegame\headers\ssystem\ssystem.h
+
+1305162025 source:c:\users\james\desktop\devbugs\spacegame\pnoise\pnoise.cpp
+	"pnoise/pnoise.h"
+
+1305162058 c:\users\james\desktop\devbugs\spacegame\headers\pnoise\pnoise.h
+	"common.h"
+	<SFML/Graphics.hpp>
+
