@@ -1,6 +1,7 @@
 #ifndef INCLUDES_IMAGEGEN_HEADER
 #define INCLUDES_IMAGEGEN_HEADER
 #include <SFML/Graphics.hpp>
+
 struct Lim{
     int Val;
     sf::Color Colour;
@@ -21,19 +22,10 @@ class PlanetHelper{
 
         void GenerateImage();
 
-        PlanetHelper(int pRadius, Lim *pLims, int pLimnum){
-            Radius=pRadius;
-            Limnum=pLimnum;
-            Lims=new Lim[pLimnum];
-            for(int i=0; i<pLimnum; i++){
-                Lims[i]=pLims[i];
-            }
-        }
+        PlanetHelper(int pRadius, Lim *pLims, int pLimnum);
 
         sf::Color &GetColoursFromHeightmap(int x, int y);
-
         int ReturnTier(int x, int y);
-
 };
 
 

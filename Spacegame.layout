@@ -7,7 +7,7 @@
 	<File name="gui\control.cpp" open="1" top="0" tabpos="5">
 		<Cursor position="0" topLine="0" />
 	</File>
-	<File name="headers\common.h" open="1" top="0" tabpos="14">
+	<File name="headers\common.h" open="1" top="0" tabpos="12">
 		<Cursor position="337" topLine="0" />
 	</File>
 	<File name="headers\imagegen\imagegen.hpp" open="1" top="0" tabpos="11">
@@ -26,18 +26,21 @@
 		<Cursor position="806" topLine="0" />
 	</File>
 	<File name="imagegen\Imagegen.cpp" open="1" top="0" tabpos="10">
-		<Cursor position="4335" topLine="112" />
+		<Cursor position="2099" topLine="48" />
 	</File>
-	<File name="main.cpp" open="1" top="1" tabpos="1">
-		<Cursor position="954" topLine="15" />
+	<File name="main.cpp" open="1" top="0" tabpos="1">
+		<Cursor position="1537" topLine="23" />
+	</File>
+	<File name="math\normald.cpp" open="1" top="0" tabpos="14">
+		<Cursor position="6091" topLine="0" />
 	</File>
 	<File name="pnoise\pnoise.cpp" open="1" top="0" tabpos="3">
 		<Cursor position="1837" topLine="69" />
 	</File>
 	<File name="space\planet.cpp" open="1" top="0" tabpos="7">
-		<Cursor position="864" topLine="0" />
+		<Cursor position="397" topLine="0" />
 	</File>
-	<File name="space\sun.cpp" open="1" top="0" tabpos="15">
-		<Cursor position="437" topLine="0" />
+	<File name="space\sun.cpp" open="1" top="1" tabpos="13">
+		<Cursor position="3918" topLine="99" />
 	</File>
 </CodeBlocks_layout_file>
